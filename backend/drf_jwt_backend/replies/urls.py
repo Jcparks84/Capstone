@@ -3,6 +3,7 @@ from replies import views
 
 
 urlpatterns = [
+    path('', views.user_reply),
     path('<int:comment>/', views.user_reply),
-    path('all/', views.get_all_replies),
+    path('api/replies/', views.get_all_replies),
 ]

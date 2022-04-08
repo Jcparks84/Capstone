@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'cars.apps.CarsConfig',  # This app is for example use only
     'comments',
     'beer_tags',
+    'replies',
+    'taggit',
 ]
 
 MIDDLEWARE = [
