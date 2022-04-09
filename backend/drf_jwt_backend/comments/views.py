@@ -32,13 +32,14 @@ def user_comment(request):
         serializer = CommentsSerializer(comments, many=True)
         return Response(serializer.data)
 
-@api_view(['PUT'])
+@api_view(['PUT', 'GET'])
 @permission_classes([IsAuthenticated])
 def update_comment(request, pk):
     updated = get_object_or_404(Comment, pk=pk)
     serializer=CommentsSerializer(updated,data=request.data)
     serializer.is_valid(raise_exception=True)
-    serializer.save(user=request.user)
+    if request.method == 'PUT':
+        serializer.save(user=request.user)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 # @api_view(['PUT'])
