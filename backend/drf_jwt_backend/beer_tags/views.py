@@ -12,8 +12,8 @@ from .serializers import BeerTypeSerializer, BeerSerializer
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def get_brewery_tags(request, brewery_id):
-    beer = Beer.objects.filter(brewery_id=brewery_id)
-    serializer = BeerTypeSerializer(Beer, many=True)
+    beer = Beer.objects.filter(id=brewery_id)
+    serializer = BeerTypeSerializer(beer, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -21,9 +21,10 @@ def get_brewery_tags(request, brewery_id):
 @permission_classes([IsAuthenticated])
 def brewery_tags(request, brewery_id):
     if request.method == 'GET':
-        beer = Beer.objects.filter(brewery_id=request.brewery_id)
-        serializer = BeerTypeSerializer(beer, many=True)
-        return response(serializer.data, status=status.HTTP_200_OK)
+        print(brewery_id)
+        beer = get_object_or_404(Beer, pk=brewery_id)
+        serializer = BeerSerializer(beer)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     elif request.method == 'POST':
         serializer = BeerSerializer(data=request.data)
         if serializer.is_valid():
