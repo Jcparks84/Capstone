@@ -1,10 +1,8 @@
 from django.urls import path, include
-from .models import Beer, Beer_type
+from beer_tags import views
 
 
 urlpatterns = [
-    path('', views.get_all_replies),
-    path('<int:comment>/', views.user_reply),
-    path('new', views.create_reply)
-    # path('api/replies/', views.get_all_replies),
+    path('', views.brewery_tags),
+    path('<slug:brewery_id>/', views.get_brewery_tags),
 ]

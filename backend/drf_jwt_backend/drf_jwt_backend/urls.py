@@ -21,6 +21,6 @@ urlpatterns = [
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
     path('api/comments/', include('comments.urls')),
-    # path('api/Beer_tags', include('beer_tags.urls')),
+    path('api/beer_tags/', include('beer_tags.urls')),
     path('api/replies/', include('replies.urls')),
 ]
