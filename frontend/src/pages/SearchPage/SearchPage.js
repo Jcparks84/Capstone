@@ -1,5 +1,4 @@
-import React from 'react';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 
@@ -15,4 +14,18 @@ const SearchPage = () => {
         setBrewery(response.data)
     }
 
-}
+    return (
+        <div className="container">
+          <h1>Home Page for {user.username}!</h1>
+          {cars &&
+            cars.map((car) => (
+              <p key={car.id}>
+                {car.year} {car.model} {car.make}
+              </p>
+            ))}
+        </div>
+      );
+
+};
+
+export default SearchPage;
