@@ -9,6 +9,7 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
 
+
   useEffect(() => {
     const fetchCars = async () => {
       try {
