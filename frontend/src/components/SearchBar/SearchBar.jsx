@@ -14,7 +14,7 @@ const handleSubmit = (event) => {
     return(
         <form>
             <div>
-                <input type='search' placeholder='Search Brewery' value={brewery} onChange={(event)=> setBrewery(event.target.value)}/>
+                <input type='text' placeholder='Search Brewery' value={brewery} onChange={(event)=> setBrewery(event.target.value)}/>
             </div>
             <button onClick={handleSubmit} type = 'submit'>Search</button>
         </form>

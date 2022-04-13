@@ -12,10 +12,9 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>One Sip Everybody Knows the Rules</b>
-          </Link>
-          <SearchBar placeholder='Enter brewery' handleChange={(e) => console.log(e.target.value)}/>
+          <p to="/" style={{ textDecoration: "none", color: "black" }}>
+            <b>"One Sip Everybody Knows the Rules"</b>
+          </p>
         </li>
         <li>
           {user ? (

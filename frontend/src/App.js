@@ -6,19 +6,23 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import SearchBar from "./components/SearchBar/SearchBar";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import { useState } from "react";
 
 
+
 function App() {
+
+  const [currentBrewery, SetCurrentBrewery] = useState('')
+  console.log(currentBrewery)
 
 
   return (
@@ -29,7 +33,8 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-            <HomePage/>
+            <SearchPage SetCurrentBrewery = {SetCurrentBrewery}/>
+            <HomePage currentBrewery = {currentBrewery}/>
             </PrivateRoute>
           }
         />
