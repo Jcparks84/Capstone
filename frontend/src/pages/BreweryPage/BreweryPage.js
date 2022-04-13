@@ -8,6 +8,7 @@ const BreweryPage = (props) => {
             {props.brewery.map((brewery, index)=>{
                 return(
                     <div>
+                        <div><h1>Brewery Page</h1></div>
                         <p>{brewery.name}</p>
                         <p>{brewery.brewery_type}</p>
                         <p>{brewery.street}</p>

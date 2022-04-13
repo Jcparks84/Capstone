@@ -35,7 +35,14 @@ function App() {
           element={
             <PrivateRoute>
             <SearchPage SetCurrentBrewery = {SetCurrentBrewery}/>
-            {/* <BreweryPage currentBrewery = {currentBrewery}/> */}
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/brewery"
+          element={
+            <PrivateRoute>
+            <BreweryPage SetCurrentBrewery = {SetCurrentBrewery}/>
             </PrivateRoute>
           }
         />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import BreweryPage from '../BreweryPage/BreweryPage';
+import { Link } from 'react-router-dom';
 
 
 const SearchPage = (props) => {
@@ -14,6 +15,7 @@ const SearchPage = (props) => {
         );
         console.log('Brewery', response.data)
         setBrewery(response.data)
+        props.SetCurrentBrewery(response.data)
     }
 
 
@@ -27,12 +29,13 @@ const SearchPage = (props) => {
     return (
         <div className="container">
           <h1>Search Brewery by Name or City</h1>
-          <SearchBar placeholder='Enter brewery' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
+          <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
           <table>
               <tbody>
                   {brewery.map((brewery, index)=>{
                       return(
                         <tr className='row' key={index}>
+                            <Link to = '/brewery'>Brewery Page</Link>
                             <td>{brewery.name}</td>
                             <td>{brewery.city}</td>
                             <td>{brewery.state}</td>
@@ -41,6 +44,7 @@ const SearchPage = (props) => {
                   })}
               </tbody>
           </table>
+          {/* <BreweryPage brewery = {brewery}/> */}
         </div>
       );
 
