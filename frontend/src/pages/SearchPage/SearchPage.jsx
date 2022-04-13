@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import BreweryPage from '../BreweryPage/BreweryPage';
 
 
 const SearchPage = (props) => {

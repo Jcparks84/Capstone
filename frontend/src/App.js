@@ -16,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import { useState } from "react";
+import BreweryPage from "./pages/BreweryPage/BreweryPage";
 
 
 
@@ -34,7 +35,7 @@ function App() {
           element={
             <PrivateRoute>
             <SearchPage SetCurrentBrewery = {SetCurrentBrewery}/>
-            <HomePage currentBrewery = {currentBrewery}/>
+            {/* <BreweryPage currentBrewery = {currentBrewery}/> */}
             </PrivateRoute>
           }
         />
