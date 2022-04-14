@@ -41,9 +41,9 @@ function App() {
         <Route
           path="/brewery/:breweryId"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
             <BreweryPage setCurrentUser = {setCurrentUser}/>
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         />
         <Route path="/register" element={<RegisterPage />} />

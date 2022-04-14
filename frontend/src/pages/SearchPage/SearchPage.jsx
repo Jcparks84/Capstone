@@ -3,7 +3,7 @@ import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import BreweryPage from '../BreweryPage/BreweryPage';
 import { Link } from 'react-router-dom';
-
+import Comment from '../../components/Comment/Comment';
 
 const SearchPage = (props) => {
     const [brewery, setBrewery] = useState([]);

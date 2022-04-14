@@ -14,7 +14,7 @@ const Comment = (props) => {
         event.preventDefault();
         let newComment = {
             text: comment,
-            brewery_id: props.currentBrewery,
+            brewery_id: props.brewery,
             likes: likes,
             dislikes: dislikes,
             

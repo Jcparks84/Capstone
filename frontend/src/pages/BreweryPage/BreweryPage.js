@@ -33,7 +33,6 @@ const BreweryPage = () => {
 
     return(
         <div className='BreweryList'>
-            BreweryPage
             {brewery.map((brewery, index)=>{
                 return(
                     <div className='bob' key={index}>
@@ -47,6 +46,7 @@ const BreweryPage = () => {
                         <p>{brewery.postal_code}</p>
                         <p>{brewery.website_url}</p>
                         </div>
+                        <Comment brewery = {brewery}/>
                     </div>
                 )
             })}
