@@ -35,6 +35,7 @@ function App() {
           element={
             <PrivateRoute>
             <SearchPage setCurrentUser = {setCurrentUser}/>
+            <BreweryPage setCurrentUser = {setCurrentUser}/>
             </PrivateRoute>
           }
         />

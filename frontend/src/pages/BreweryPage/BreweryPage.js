@@ -44,9 +44,9 @@ const BreweryPage = () => {
                         <p>{brewery.city}</p>
                         <p>{brewery.state}</p>
                         <p>{brewery.postal_code}</p>
-                        <p>{brewery.website_url}</p>
+                        <p><a href={brewery.website_url}>website</a></p>
                         </div>
-                        <Comment brewery = {brewery}/>
+                        <Comment brewery = {brewery} />
                     </div>
                 )
             })}

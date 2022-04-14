@@ -9,7 +9,7 @@ const CommentList = (props) => {
 
     async function displayBreweryComments () {
         let response = await axios.get(
-            `http://127.0.0.1:8000/api/comments/${}/`
+            `http://127.0.0.1:8000/api/comments/${props.breweryId}/`
         );
         console.log(response.data)
         setBreweryComment('setBreweryComment', response.data)
