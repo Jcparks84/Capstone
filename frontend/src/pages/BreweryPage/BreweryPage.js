@@ -17,13 +17,13 @@ const BreweryPage = () => {
           `https://api.openbrewerydb.org/breweries/${breweryId}`
         );
         console.log("getBrewery Response", response.data);
-        setBrewery(response.data);
+        setBrewery([response.data]);
       }
 
 
       useEffect(() => {
-          getBrewery(brewery);
-          console.log('Brewery', brewery)
+          getBrewery([brewery]);
+          console.log('brewery', brewery)
       },[])
 
 
@@ -34,7 +34,7 @@ const BreweryPage = () => {
     return(
         <div className='BreweryList'>
             BreweryPage
-            {/* {brewery.map((brewery, index)=>{
+            {brewery.map((brewery, index)=>{
                 return(
                     <div className='bob' key={index}>
                         <div>
@@ -49,7 +49,7 @@ const BreweryPage = () => {
                         </div>
                     </div>
                 )
-            })} */}
+            })}
         </div>
     )
 }
