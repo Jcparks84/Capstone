@@ -22,8 +22,8 @@ import BreweryPage from "./pages/BreweryPage/BreweryPage";
 
 function App() {
 
-  const [currentBrewery, SetCurrentBrewery] = useState('')
-  console.log(currentBrewery)
+  const [currentUser, setCurrentUser] = useState('')
+  console.log(currentUser)
 
 
   return (
@@ -34,15 +34,15 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-            <SearchPage SetCurrentBrewery = {SetCurrentBrewery}/>
+            <SearchPage setCurrentUser = {setCurrentUser}/>
             </PrivateRoute>
           }
         />
         <Route
-          path="/brewery"
+          path="/brewery/:breweryId"
           element={
             <PrivateRoute>
-            <BreweryPage SetCurrentBrewery = {SetCurrentBrewery}/>
+            <BreweryPage setCurrentUser = {setCurrentUser}/>
             </PrivateRoute>
           }
         />

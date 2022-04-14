@@ -46,4 +46,4 @@ const Reply = (props) => {
 
 };
 
-export default ReplyForm;
+export default Reply;
