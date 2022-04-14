@@ -8,7 +8,7 @@ import Comment from '../../components/Comment/Comment';
 
 const BreweryPage = () => {
     const {breweryId} = useParams()
-    const [brewery, setBrewery] = useState()
+    const [brewery, setBrewery] = useState([])
     console.log("BreweryPage line 11", breweryId)
 
 
