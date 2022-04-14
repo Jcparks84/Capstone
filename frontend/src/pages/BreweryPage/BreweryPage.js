@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Comment from '../../components/Comment/Comment';
@@ -8,7 +8,25 @@ import Comment from '../../components/Comment/Comment';
 
 const BreweryPage = () => {
     const {breweryId} = useParams()
+    const [brewery, setBrewery] = useState()
     console.log("BreweryPage line 11", breweryId)
+
+
+    async function getBrewery() {
+        let response = await axios.get(
+          `https://api.openbrewerydb.org/breweries/${breweryId}`
+        );
+        console.log("getBrewery Response", response.data);
+        setBrewery(response.data);
+      }
+
+
+      useEffect(() => {
+          getBrewery(brewery);
+          console.log('Brewery', brewery)
+      },[])
+
+
 
     
 
@@ -16,7 +34,7 @@ const BreweryPage = () => {
     return(
         <div className='BreweryList'>
             BreweryPage
-            {/* {props.brewery.map((brewery, index)=>{
+            {/* {brewery.map((brewery, index)=>{
                 return(
                     <div className='bob' key={index}>
                         <div>
