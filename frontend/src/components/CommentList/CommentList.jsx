@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import ReplyForm from '../ReplyForm/ReplyForm';
-import './CommentList.css';
+import Comment from '../Comment/Comment';
+// import './CommentList.css';
 
 const CommentList = (props) => {
 
@@ -12,7 +12,7 @@ const CommentList = (props) => {
             `http://127.0.0.1:8000/api/comments/${props.breweryId}/`
         );
         console.log(response.data)
-        setBreweryComment('setBreweryComment', response.data)
+        setBreweryComment(response.data)
 
     }
   useEffect(() => {
@@ -24,15 +24,15 @@ const CommentList = (props) => {
     
     return (
         <div className='displayCommentList'>
-            {breweryComment.map((BreweryComment, index)=> {
+            {breweryComment.length > 0 ? breweryComment.map((BreweryComment, index)=> {
                 return (
                     <div>
                         <p key={index} className='comment'>{BreweryComment.text}</p>
-                        <ReplyForm/>
+                        {/* <Reply/> */}
                         </div>
 
                 )
-            })}
+            }) : <p>Loading ...</p>}
 
         </div>
     )

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Comment from '../../components/Comment/Comment';
 import Rating from '../../components/Rating/Rating';
-import './breweryPage.css'
+import './breweryPage.css';
+import CommentList from '../../components/CommentList/CommentList';
 // import Reply from '../../components/Reply/reply';
 
 
@@ -48,8 +49,9 @@ const BreweryPage = () => {
                         <p>{brewery.postal_code}</p>
                         <p><a href={brewery.website_url}>website</a></p>
                         </div>
-                        <Comment brewery = {brewery} />
                         <Rating/>
+                        <Comment brewery = {brewery} />
+                        <CommentList breweryId = {breweryId}/>
                     </div>
                 )
             })}
