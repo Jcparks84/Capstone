@@ -5,6 +5,7 @@ import Comment from '../../components/Comment/Comment';
 import Rating from '../../components/Rating/Rating';
 import './breweryPage.css';
 import CommentList from '../../components/CommentList/CommentList';
+import LikeDislike from '../../components/LikeDislike/LikeDislike';
 // import Reply from '../../components/Reply/reply';
 
 
@@ -52,6 +53,7 @@ const BreweryPage = () => {
                         <Rating/>
                         <Comment brewery = {brewery} />
                         <CommentList breweryId = {breweryId}/>
+                        <LikeDislike/>
                     </div>
                 )
             })}
