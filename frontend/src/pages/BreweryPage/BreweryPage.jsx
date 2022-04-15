@@ -36,19 +36,19 @@ const BreweryPage = () => {
 
 
     return(
-        <div className='BreweryList'>
+        <div className='container'>
             {brewery.map((brewery, index)=>{
                 return(
-                    <div className='bob' key={index}>
+                    <div className='container' key={index}>
                         <div>
                             <h1>Brewery Page</h1>
-                        <p>{brewery.name}</p>
-                        <p>{brewery.brewery_type}</p>
-                        <p>{brewery.street}</p>
-                        <p>{brewery.city}</p>
-                        <p>{brewery.state}</p>
-                        <p>{brewery.postal_code}</p>
-                        <p><a href={brewery.website_url}>website</a></p>
+                        <p className='breweryInfo'>{brewery.name}</p>
+                        <p className='breweryInfo'>{brewery.brewery_type}</p>
+                        <p className='breweryInfo'>{brewery.street}</p>
+                        <p className='breweryInfo'>{brewery.city}</p>
+                        <p className='breweryInfo'>{brewery.state}</p>
+                        <p className='breweryInfo'>{brewery.postal_code}</p>
+                        <p className='breweryInfo'><a href={brewery.website_url}>Brewery Website</a></p>
                         </div>
                         <Rating/>
                         <Comment brewery = {brewery} />

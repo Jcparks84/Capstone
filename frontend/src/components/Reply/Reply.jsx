@@ -5,7 +5,6 @@ import axios from "axios";
 
 
 const Reply = (props) => {
-    const [user,setUser] = useState('');
     const [reply, setReply] = useState('');
 
 

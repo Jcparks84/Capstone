@@ -9,7 +9,7 @@ const Comment = (props) => {
     const likes = 0;
     const dislikes = 0;
 
-    console.log(comment)
+    console.log(comment.id)
     
     function handleComment(event){
         event.preventDefault();

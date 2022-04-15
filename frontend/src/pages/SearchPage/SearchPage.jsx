@@ -3,6 +3,7 @@ import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import BreweryPage from '../BreweryPage/BreweryPage';
 import { Link } from 'react-router-dom';
+import './SearchPage.css'
 
 
 const SearchPage = (props) => {

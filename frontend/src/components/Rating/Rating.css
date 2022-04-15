@@ -5,6 +5,7 @@
     place-items: center;
 }
 .box{
+    align-items: center;
     width: 300px;
 }
 h1{
