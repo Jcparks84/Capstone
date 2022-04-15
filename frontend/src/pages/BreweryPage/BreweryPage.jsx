@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Comment from '../../components/Comment/Comment';
+import Rating from '../../components/Rating/Rating';
+import './breweryPage.css'
 // import Reply from '../../components/Reply/reply';
 
 
@@ -47,6 +49,7 @@ const BreweryPage = () => {
                         <p><a href={brewery.website_url}>website</a></p>
                         </div>
                         <Comment brewery = {brewery} />
+                        <Rating/>
                     </div>
                 )
             })}

@@ -3,7 +3,7 @@ import axios from 'axios';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import BreweryPage from '../BreweryPage/BreweryPage';
 import { Link } from 'react-router-dom';
-import Comment from '../../components/Comment/Comment';
+
 
 const SearchPage = (props) => {
     const [brewery, setBrewery] = useState([]);
@@ -17,15 +17,6 @@ const SearchPage = (props) => {
         console.log('Brewery', response.data)
         setBrewery(response.data)
     }
-
-    // async function getBreweryById(setBreweryId){
-    //     let response = await axios.get(
-    //         `https://api.openbrewerydb.org/breweries/${setBreweryId}`
-    //     );
-    //     console.log('brewery id', response.data)
-    //     setBreweryId(response.data)
-    //     console.log(breweryId)
-    // }
 
     const handleClick = (e, id) => {
         e.preventDefault();
