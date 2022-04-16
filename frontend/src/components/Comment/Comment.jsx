@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Comment = (props) => {
     const [comment, setComment] = useState([]);
+    const [commentss, getCommentss] = useState([])
     const [user, token] = useAuth();
     const likes = 0;
     const dislikes = 0;
@@ -39,7 +40,7 @@ const Comment = (props) => {
 
     const getAllComments= async()=>{
         let response = await axios.get(`http://127.0.0.1:8000/api/comments/`);
-        setComment(response.data)
+        commentss(response.data)
         console.log(response.data)
     }
 
@@ -50,6 +51,8 @@ const Comment = (props) => {
             <input type="text" value={comment} onChange={(event)=> setComment(event.target.value)} />
          
             <input type="submit" value='Add Comment' />
+
+            <p>  </p>
            
       
         </form>

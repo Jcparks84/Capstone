@@ -6,6 +6,7 @@ import Rating from '../../components/Rating/Rating';
 import './breweryPage.css';
 import CommentList from '../../components/CommentList/CommentList';
 import LikeDislike from '../../components/LikeDislike/LikeDislike';
+import Tags from '../../components/Tags/Tags';
 // import Reply from '../../components/Reply/reply';
 
 
@@ -13,6 +14,7 @@ import LikeDislike from '../../components/LikeDislike/LikeDislike';
 const BreweryPage = () => {
     const {breweryId} = useParams()
     const [brewery, setBrewery] = useState([])
+    const selectTags = tags => console.log(tags);
     console.log("BreweryPage line 11", breweryId)
 
 
@@ -50,6 +52,7 @@ const BreweryPage = () => {
                         <p className='breweryInfo'>{brewery.postal_code}</p>
                         <p className='breweryInfo'><a href={brewery.website_url}>Brewery Website</a></p>
                         </div>
+                        <Tags selectTags = {selectTags}/>
                         <Rating/>
                         <Comment brewery = {brewery} />
                         <CommentList breweryId = {breweryId}/>
