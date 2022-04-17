@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Comment from '../Comment/Comment';
+import Reply from '../Reply/Reply';
 // import './CommentList.css';
 
 const CommentList = (props) => {
@@ -19,8 +20,9 @@ const CommentList = (props) => {
     displayBreweryComments();
     console.log('breweryComment', breweryComment)
 
-}, [])
-  
+}, [setBreweryComment])
+    
+    console.log('breweryComment.id',breweryComment)
     
     return (
         <div className='displayCommentList'>
@@ -28,7 +30,7 @@ const CommentList = (props) => {
                 return (
                     <div>
                         <p key={index} className='comment'>{BreweryComment.text}</p>
-                        {/* <Reply/> */}
+                        <Reply breweryComment = {BreweryComment}/>
                         </div>
 
                 )

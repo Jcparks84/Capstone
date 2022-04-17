@@ -7,23 +7,24 @@ import axios from "axios";
 const Reply = (props) => {
     const [reply, setReply] = useState('');
 
-
     function handleReply(e) {
         e.preventDefault();
 
         let newReply = {
 
             text: reply,
-            comment: props.comment.id,
+            comment: props.breweryComment.id,
+    
+            
         };
-            console.log(props.comment.id);
+            console.log(props.breweryComment.id);
             console.log(newReply);
             addReply(newReply);
 
         
         async function addReply(newReply){
             try {
-              let response = await axios.post(`hhttp://127.0.0.1:8000/api/replies/new/${props.comment.id}/`, newReply,{
+              let response = await axios.post(`http://127.0.0.1:8000/api/replies/new${props.breweryComment.text}/`, newReply,{
               headers: {
                   Authorization: "Bearer " + props.token,
               },
@@ -38,7 +39,7 @@ const Reply = (props) => {
     }
     return (
         <form onSubmit={handleReply}>
-            <input type='text' value={replies} onChange={(event)=> setReply(event.target.value)}/>
+            <input type='text' value={reply} onChange={(event)=> setReply(event.target.value)}/>
             <input type="submit" value='Add Reply' />
         </form>
     )
