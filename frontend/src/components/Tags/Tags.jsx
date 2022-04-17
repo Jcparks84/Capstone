@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { ReactDOM } from 'react-dom'
 import './Tags.css'
@@ -15,6 +16,12 @@ const Tags = props => {
     
     };
 
+    // async function addTags(){
+    //     try{
+    //         let response = await axios.post()
+    //     }
+    // };
+
     const removeTags = index => {
         SetTags([...tags.filter(tag => tags.indexOf(tag) !== index)]);
     }
@@ -24,7 +31,7 @@ const Tags = props => {
             <ul>
                 {tags.map((tag, index) => (
                     <li key={index}>
-                    <p> {tags} </p>
+                    <p> {tag} </p>
                     <i className='material-icons'
                     onClick={() => removeTags(index)}
                     >

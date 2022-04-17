@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
 
 
 
 
 const Reply = (props) => {
     const [reply, setReply] = useState('');
+    const [user, token] = useAuth();
 
     function handleReply(e) {
         e.preventDefault();
@@ -21,17 +23,20 @@ const Reply = (props) => {
             console.log(newReply);
             addReply(newReply);
 
+            console.log(props.token)
+
         
         async function addReply(newReply){
             try {
-              let response = await axios.post(`http://127.0.0.1:8000/api/replies/new${props.breweryComment.text}/`, newReply,{
+              let response = await axios.post(`http://127.0.0.1:8000/api/replies/new/`, newReply,{
               headers: {
-                  Authorization: "Bearer " + props.token,
+                  Authorization: "Bearer " + token,
+        
               },
-
             });
             setReply(response.data);
            } catch (error){
+               console.log(props.token)
               console.log(error.message);
             }
         

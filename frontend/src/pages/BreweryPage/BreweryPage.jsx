@@ -7,7 +7,7 @@ import './breweryPage.css';
 import CommentList from '../../components/CommentList/CommentList';
 import LikeDislike from '../../components/LikeDislike/LikeDislike';
 import Tags from '../../components/Tags/Tags';
-// import Reply from '../../components/Reply/reply';
+
 
 
 

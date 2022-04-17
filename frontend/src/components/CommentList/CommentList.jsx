@@ -34,7 +34,7 @@ const CommentList = (props) => {
                         </div>
 
                 )
-            }) : <p>Loading ...</p>}
+            }) : <p></p>}
 
         </div>
     )
