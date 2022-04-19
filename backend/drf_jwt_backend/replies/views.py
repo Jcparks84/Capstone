@@ -10,10 +10,10 @@ from .serializers import ReplySerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_all_replies(request):
-    replies = Reply.objects.all()
+def get_all_replies(request, brewery_id):
+    replies = Reply.objects.filter(brewery_id = brewery_id)
     serializer = ReplySerializer(replies, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])

@@ -6,19 +6,3 @@ html {
     background-size: cover;
   }
 
-.container {
-    align-items: center;
-    font: 'red';
-  }
-  
-  h1 {
-    /* Center horizontally */
-    text-align: center;
-    color: red;
-  }
- .breweryInfo{
-     color: red;
- }
- p{
-     color: red;
- }

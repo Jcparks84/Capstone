@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Reply = (props) => {
     const [reply, setReply] = useState('');
+    const [replies, setReplies] = useState('')
     const [user, token] = useAuth();
 
     function handleReply(e) {
@@ -20,10 +21,9 @@ const Reply = (props) => {
             
         };
             console.log(props.breweryComment.id);
-            console.log(newReply);
+            console.log('reply', newReply);
             addReply(newReply);
 
-            console.log(props.token)
 
         
         async function addReply(newReply){
@@ -36,17 +36,25 @@ const Reply = (props) => {
             });
             setReply(response.data);
            } catch (error){
-               console.log(props.token)
               console.log(error.message);
             }
         
         };
     }
+
+    const getAllComments= async()=>{
+        let response = await axios.get(`http://127.0.0.1:8000/api/comments/`);
+        replies('replies',response.data)
+        console.log(response.data)
+    }
+
     return (
+        <div>
         <form onSubmit={handleReply}>
-            <input type='text' value={reply} onChange={(event)=> setReply(event.target.value)}/>
+            <input  type='text' value={reply} onChange={(event)=> setReply(event.target.value)}/>
             <input type="submit" value='Add Reply' />
         </form>
+        </div>
     )
 
 };

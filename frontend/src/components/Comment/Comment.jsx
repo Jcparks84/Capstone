@@ -48,11 +48,9 @@ const Comment = (props) => {
     return (
         <form className= 'formbox' onSubmit={handleComment}>
          
-            <input type="text" value={comment} onChange={(event)=> setComment(event.target.value)} />
+            <input type='text' value={comment} onChange={(event)=> setComment(event.target.value)} />
          
             <input type="submit" value='Add Comment' />
-
-            <p>  </p>
            
       
         </form>
