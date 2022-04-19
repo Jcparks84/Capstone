@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinLengthValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 
 class Rating(models.Model):
@@ -8,7 +8,7 @@ class Rating(models.Model):
     score = models.IntegerField(default=0,
         validators=[
             MaxValueValidator(5),
-            MinLengthValidator(0),
+            MinValueValidator(0),
         ]
     )
 

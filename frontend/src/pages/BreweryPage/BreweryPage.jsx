@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Comment from '../../components/Comment/Comment';
-import Rating from '../../components/Rating/Rating';
 import './breweryPage.css';
 import CommentList from '../../components/CommentList/CommentList';
 import LikeDislike from '../../components/LikeDislike/LikeDislike';
 import Tags from '../../components/Tags/Tags';
+import useAuth from "../../hooks/useAuth";
 
-
+var Rating = require('react-rating').default;
 
 
 const BreweryPage = () => {
     const {breweryId} = useParams()
-    const [brewery, setBrewery] = useState([])
+    const [brewery, setBrewery] = useState([]);
+    const [rating, setRating] = useState(0);
+    const [ratingFlag, setRatingFlag] = useState(false);
     const selectTags = tags => console.log(tags);
+    const [user, token] = useAuth();
     console.log("BreweryPage line 11", breweryId)
 
 
@@ -32,6 +35,28 @@ const BreweryPage = () => {
           console.log('brewery', brewery)
       },[])
 
+
+      async function addRatings(rating){
+          
+        try{
+            let ratingValue = {
+                score: rating,
+                brewery_id: breweryId,
+                user: user.id
+            };
+            let response = await axios.post('http://127.0.0.1:8000/api/ratings/add/', ratingValue, {
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                },
+            });
+            console.log(response.data);
+            if (response.data) {
+                setRatingFlag(true);
+            }
+        } catch (error){
+            console.log(error);
+        }
+    };
 
 
     
@@ -53,7 +78,11 @@ const BreweryPage = () => {
                         <p className='breweryInfo'><a href={brewery.website_url}>Brewery Website</a></p>
                         </div>
                         <Tags selectTags = {selectTags}/>
-                        <Rating/>
+                        <Rating readonly={ratingFlag} initialRating={rating} placeholderRating={rating} onClick={(val) => {
+                            console.log('rating value', val);
+                            addRatings(val);
+                            setRating(val);
+                        } }/>
                         <Comment brewery = {brewery} />
                         <CommentList breweryId = {breweryId}/>
                         <LikeDislike/>

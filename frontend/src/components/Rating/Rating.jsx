@@ -2,83 +2,84 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import "./Rating.css";
 
-function StarIcon(props) {
-    const {fill = {fill}} = props;
-    return(
-    <svg class="w-6 h-6" fill= {fill} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-    );
-}
+const Rating = (props) => {
 
-function RatingIcon(props){
-    const{
-        index,
-        rating,
-        hoverRating,
-        onMouseEnter,
-        onMouseLeave,
-        onSaveRating,
-    } =(props);
-    const fill = React.memo(() => {
-        if(hoverRating >= index){
-            return 'yellow';
-        } else if (!hoverRating && rating >= index){
-            return 'yellow';
+    const one = document.getElementById('first')
+    const two = document.getElementById('second')
+    const three = document.getElementById('third')
+    const four = document.getElementById('fourth')
+    const five = document.getElementById('fifth')
+
+    const handleSelect = (selection) => {
+        switch(selection){
+            case 'first':{
+                one.classList.add('checked')
+                two.classList.remove('checked')
+                three.classList.remove('checked')
+                four.classList.remove('checked')
+                five.classList.remove('checked')
+                return
+            }
+            case 'second':{
+                one.classList.add('checked')
+                two.classList.add('checked')
+                three.classList.remove('checked')
+                four.classList.remove('checked')
+                five.classList.remove('checked')
+                return
+            }
+            case 'third':{
+                one.classList.add('checked')
+                two.classList.add('checked')
+                three.classList.add('checked')
+                four.classList.remove('checked')
+                five.classList.remove('checked')
+                return
+            }
+            case 'fourth':{
+                one.classList.add('checked')
+                two.classList.add('checked')
+                three.classList.add('checked')
+                four.classList.add('checked')
+                five.classList.remove('checked')
+                return
+            }
+            case 'fifth':{
+                one.classList.add('checked')
+                two.classList.add('checked')
+                three.classList.add('checked')
+                four.classList.add('checked')
+                five.classList.add('checked')
+                return
+            }
         }
-        return 'none';
-    },[rating, hoverRating, index]);
-    // console.log(index)
+    }
+
+    // const arr = [one, two, three, four, five]
+
+    // arr.forEach(item => item.addEventListener('mouseover', (e)=>{
+    //     console.log(e.target)
+    // }))
+
     return(
-        <div className="cursor-pointer"
-        onMouseEnter={()=> onMouseEnter(index)} 
-        onMouseLeave={()=> onMouseLeave()} 
-        onClick={()=> onSaveRating(index)}>
-        <StarIcon fill = {fill}/>
+        <div className="row">
+            <div className="col text-center">
+                <button className="btn btn-primary">Rate</button>
+            </div>
+            <div className="col text-center">
+                <form className="rate-form" action="" method="POST">
+                    <button class="fa fa-star fa-3x checked" id="first"></button>
+                    <button class="fa fa-star fa-3x checked" id="second"></button>
+                    <button class="fa fa-star fa-3x checked" id="third"></button>
+                    <button class="fa fa-star fa-3x checked" id="fourth"></button>
+                    <button class="fa fa-star fa-3x checked" id="fifth"></button> 
+                </form>
+            </div>
         </div>
-    )
-}
-
-
-
-const Rating = () => {
-    const [rating, setRating] = useState(0);
-    const [hoverRating, setHoverRating] = useState(0);
-
-
-const onMouseEnter = (index) => {
-    setHoverRating(index);
-};
-const onMouseLeave = () => {
-    setHoverRating(0);
-    console.log()
-};
-const onSaveRating = (index) =>{
-    setRating(index);
-
-    console.log(index)
-};
-
-// console.log(hoverRating)
-
-
-    return (
-        
-            <div className="box flex">
-            {[1,2,3,4,5,].map((index)=> {
-               
-               return(
-                <RatingIcon 
-                index={index}
-                rating={rating}
-                hoverRating={hoverRating}
-                onMouseEnter = {onMouseEnter}
-                onMouseLeave = {onMouseLeave}
-                onSaveRating = {onSaveRating}/>)
-            })}
-            
-        </div>
-        
-    
-    )
-}
+)}
 
 export default Rating;
+
+{/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> */}
+
+
