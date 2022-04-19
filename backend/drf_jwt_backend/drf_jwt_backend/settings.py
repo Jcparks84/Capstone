@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'comments',
     'beer_tags',
     'replies',
+    'taggit',
+    'ratings',
 ]
 
 MIDDLEWARE = [
