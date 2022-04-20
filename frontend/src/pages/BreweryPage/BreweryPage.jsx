@@ -8,7 +8,7 @@ import LikeDislike from '../../components/LikeDislike/LikeDislike';
 import Tags from '../../components/Tags/Tags';
 import useAuth from "../../hooks/useAuth";
 
-var Rating = require('react-rating').default;
+const Rating = require('react-rating').default;
 
 
 const BreweryPage = () => {
@@ -32,7 +32,6 @@ const BreweryPage = () => {
 
       useEffect(() => {
           getBrewery([brewery]);
-          console.log('brewery', brewery)
       },[])
 
 
