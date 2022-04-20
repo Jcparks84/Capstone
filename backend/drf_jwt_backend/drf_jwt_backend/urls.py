@@ -24,4 +24,5 @@ urlpatterns = [
     path('api/beer_tags/', include('beer_tags.urls')),
     path('api/replies/', include('replies.urls')),
     path('api/ratings/', include('ratings.urls')),
+    path('api/favorite/', include('favorite.urls')),
 ]

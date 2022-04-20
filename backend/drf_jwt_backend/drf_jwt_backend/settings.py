@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'replies',
     'taggit',
     'ratings',
+    'favorite',
 ]
 
 MIDDLEWARE = [
