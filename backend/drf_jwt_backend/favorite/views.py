@@ -8,6 +8,7 @@ from .serializers import FavoriteSerializer
 
 
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def favorite_brewery(request):
     favorite = Favorite.objects.filter()
     serializer = FavoriteSerializer(favorite, many=True)
@@ -15,9 +16,9 @@ def favorite_brewery(request):
 
 
 @api_view(['GET', 'POST'])
-def user_Favortie(request):
-    print(
-        'User ', f"{request.user.id}{request.user.username}")
+@permission_classes([IsAuthenticated])
+def user_Favortie(request, brewery_id):
+    print('User === ', f"{request.user}")
     if request.method == 'POST':
         serializer = FavoriteSerializer(data=request.data)
         if serializer.is_valid():
@@ -27,7 +28,7 @@ def user_Favortie(request):
             print(serializer)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'GET':
-        favorite = Favorite.objects.filter()
+        favorite = Favorite.objects.filter(brewery_id=brewery_id)
         serializer = FavoriteSerializer(favorite, many=True)
         return Response(serializer.data)
 

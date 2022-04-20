@@ -7,6 +7,7 @@ import CommentList from '../../components/CommentList/CommentList';
 import LikeDislike from '../../components/LikeDislike/LikeDislike';
 import Tags from '../../components/Tags/Tags';
 import useAuth from "../../hooks/useAuth";
+import Favorite from '../../components/Favorite/Favorite';
 
 const Rating = require('react-rating').default;
 
@@ -18,7 +19,7 @@ const BreweryPage = () => {
     const [ratingFlag, setRatingFlag] = useState(false);
     const selectTags = tags => console.log(tags);
     const [user, token] = useAuth();
-    console.log("BreweryPage line 11", breweryId)
+    console.log("BreweryPage line 11", breweryId, user)
 
 
     async function getBrewery() {
@@ -77,6 +78,7 @@ const BreweryPage = () => {
                         <p className='breweryInfo'><a href={brewery.website_url}>Brewery Website</a></p>
                         </div>
                         <Tags selectTags = {selectTags}/>
+                        <Favorite />
                         <Rating readonly={ratingFlag} initialRating={rating} placeholderRating={rating} onClick={(val) => {
                             console.log('rating value', val);
                             addRatings(val);

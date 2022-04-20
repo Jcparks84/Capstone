@@ -17,6 +17,7 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 import { useState } from "react";
 import BreweryPage from "./pages/BreweryPage/BreweryPage";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
 
 
 
@@ -48,6 +49,7 @@ function App() {
           }
         />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/favourite" element={<FavoritePage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />

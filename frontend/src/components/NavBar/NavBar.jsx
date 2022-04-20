@@ -22,6 +22,8 @@ const Navbar = () => {
           ) : (
             <button onClick={() => navigate("/login")}>Login</button>
           )}
+            <button onClick={() => navigate('/favourite')}>Favorite Breweries</button>
+            <button onClick={() => navigate('')}>Search</button>
         </li>
       </ul>
     </div>
