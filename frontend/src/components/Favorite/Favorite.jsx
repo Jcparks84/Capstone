@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import useAuth from '../../hooks/useAuth';
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from 'react-icons/md';
+import './Favorite.css';
+
 
 const Favorite = () => {
     const {breweryId} = useParams()
     const [user, token] = useAuth();
     const [favorites, setFavorites] = useState(false);
+    const [isLiked, setIsliked] = useState(false);
 
     const favoritesAction = async () => {
         console.log('favorite', favorites);
@@ -33,9 +37,13 @@ const Favorite = () => {
 
     }
 
+    const handleLike = () => {
+        setIsliked(isLiked => !isLiked)
+    }
+
     return (<>
-        <div className='row'>
-            <button onClick={() => setFavorites(!favorites)& favoritesAction()}>favorite</button>
+        <div className='like'>
+          Click to {isLiked ? 'dislike' : 'like'}: {isLiked ? <MdOutlineFavorite onClick={handleLike} size={50} className='icon'/> : <MdOutlineFavoriteBorder onClick={handleLike} size={50} className='icon'/>}
         </div>
     </>)
 }

@@ -1,0 +1,10 @@
+
+.like{
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    cursor: pointer;
+}

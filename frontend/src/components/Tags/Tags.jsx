@@ -40,6 +40,7 @@ const Tags = props => {
                 ))}
             </ul>
             <input 
+            className='tag-input'
             type='text'
             onKeyUp={e=>addTags(e)} 
             placeholder='add tag'/>
