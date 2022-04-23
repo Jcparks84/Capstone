@@ -58,6 +58,8 @@ const BreweryPage = () => {
         }
     };
 
+    console.log('Ratings =', rating);
+
 
     
 
@@ -84,6 +86,7 @@ const BreweryPage = () => {
                             addRatings(val);
                             setRating(val);
                         } }/>
+                        <p>{rating}/5</p>
                         <Comment brewery = {brewery} />
                         <CommentList breweryId = {breweryId}/>
                         <LikeDislike/>

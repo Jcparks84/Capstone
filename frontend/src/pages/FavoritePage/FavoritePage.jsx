@@ -27,11 +27,11 @@ const FavoritePage = () => {
 
     return (
         <div className="container">
-            <h1>Favourite Page</h1>
+            <h1>Favorite Page</h1>
             {data && data.length && data.map((item, index) => {
                 return (
                     <div className='container' key={index}>
-                        <p className='breweryInfo'>{item.user.username} : {item.brewery_id}</p>
+                        <p className='breweryInfo'> {item.brewery_id}</p>
                     </div>
                 )
             })}

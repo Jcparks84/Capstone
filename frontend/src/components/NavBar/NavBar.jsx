@@ -13,7 +13,7 @@ const Navbar = () => {
       <ul>
         <li className="brand">
           <p to="/" style={{ textDecoration: "none", color: "red" }}>
-            <b>"One Sip Everybody Knows the Rules"</b>
+            <b>OneSip</b>
           </p>
         </li>
         <li>
@@ -31,3 +31,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
