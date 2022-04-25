@@ -4,34 +4,17 @@ import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
 import SearchBar from "../SearchBar/SearchBar";
+import { TiBeer } from "@react-icons/all-files/ti/TiBeer";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   return (
-    // <div className="navBar">
-    //   <ul>
-    //     <li className="brand">
-    //       <p to="/" style={{ textDecoration: "none", color: "red" }}>
-    //         <b>OneSip</b>
-    //       </p>
-    //     </li>
-    //     <li>
-    //       {user ? (
-    //         <button onClick={logoutUser}>Logout</button>
-    //       ) : (
-    //         <button onClick={() => navigate("/login")}>Login</button>
-    //       )}
-    //         <button onClick={() => navigate('/favourite')}>Favorite Breweries</button>
-    //         <button onClick={() => navigate('')}>Search</button>
-    //     </li>
-    //   </ul>
-    // </div>
     <div className="navContainer">
       <div className="navBar">
         <h2 to="/" style={{ textDecoration: "none", color: "red" }}>
           {" "}
-          OneSip{" "}
+           OneSip{" "} <TiBeer/>
         </h2>
 
         <ul>

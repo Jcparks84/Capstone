@@ -40,7 +40,7 @@ const BreweryPage = () => {
         user: user.id,
       };
       let response = await axios.post(
-        "http://127.0.0.1:8000/api/ratings/add/",
+        "http://127.0.0.1:8000/api/ratings/add",
         ratingValue,
         {
           headers: {

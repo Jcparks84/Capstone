@@ -43,7 +43,7 @@ const Favorite = () => {
 
     return (<>
         <div className='like'>
-          Click to {isLiked ? 'dislike' : 'like'}: {isLiked ? <MdOutlineFavorite onClick={handleLike} size={50} className='icon'/> : <MdOutlineFavoriteBorder onClick={handleLike} size={50} className='icon'/>}
+          {isLiked ? 'Remove' : 'Favorite'}: {isLiked ? <MdOutlineFavorite onClick={() => setFavorites(!favorites)& favoritesAction(handleLike)} size={50} className='icon'/> : <MdOutlineFavoriteBorder onClick={handleLike} size={50} className='icon'/>}
         </div>
     </>)
 }
