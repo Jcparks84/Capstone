@@ -5,6 +5,7 @@ import BreweryPage from '../BreweryPage/BreweryPage';
 import { Link } from 'react-router-dom';
 import './SearchPage.css'
 import { Button, Card } from 'react-bootstrap/Button'
+import Tags from '../../components/Tags/Tags';
 
 
 const SearchPage = (props) => {
@@ -24,7 +25,7 @@ const SearchPage = (props) => {
 
     const findAvg = (arr) => {
         const { length } = arr;
-        console.log('ratings aray =====', arr);
+        console.log('ratings array', arr);
         return Array.from(arr).reduce((total, val) => {
             return total + (val.score / length);
         }, 0);
@@ -40,7 +41,7 @@ const SearchPage = (props) => {
                     ).then(async (response) => {
                         console.log('brewery_id ragins', response.data);
                         const avg = await findAvg(response.data)
-                        console.log('avg ragins', avg, element.id);
+                        console.log('avg ratings', avg, element.id);
                     });
 
                 } catch (error) {
@@ -75,8 +76,8 @@ const SearchPage = (props) => {
                                 <td>{brewery.name}</td>
                                 <td>{brewery.city}</td>
                                 <td>{brewery.state}</td>
-                                <td>Tags: Ipa Lager</td>
-                                <td>Rating: 4/5</td>
+                                <td>Ipa Stout</td>
+                                <td>Rating: 5/5</td>
                             </tr>
                         )
                     })}

@@ -9,8 +9,9 @@ html {
   .container{
     background: beige;
     color: black;
-    padding: 30px 20px;
+    padding: 20px 20px;
     border-radius: 5px;
+    font: bolder;
   }
 
   .container h1{
@@ -21,5 +22,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: red;
   }
 

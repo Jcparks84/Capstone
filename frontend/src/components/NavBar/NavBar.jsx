@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="navContainer">
       <div className="navBar">
-        <h2 to="/" style={{ textDecoration: "none", color: "red" }}>
+        <h2 to="/" style={{ textDecoration: "none", color: "beige" }}>
           {" "}
            OneSip{" "} <TiBeer/>
         </h2>

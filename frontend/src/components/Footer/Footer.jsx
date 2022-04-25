@@ -1,9 +1,10 @@
 import "./Footer.css";
+import { TiBeer } from "@react-icons/all-files/ti/TiBeer";
 
 const Footer = () => {
   return (
     <footer>
-      <h3>OneSip</h3>{" "}
+      <h3>OneSip <TiBeer/></h3>
     </footer>
   );
 };
