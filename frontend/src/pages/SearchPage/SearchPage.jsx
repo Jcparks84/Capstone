@@ -20,39 +20,42 @@ const SearchPage = (props) => {
         );
         console.log('Brewery', response.data)
         setBrewery(response.data)
-
     }
 
     const findAvg = (arr) => {
         const { length } = arr;
-        console.log('ratings array', arr);
         return Array.from(arr).reduce((total, val) => {
             return total + (val.score / length);
         }, 0);
     }
 
-    async function getRatings() {
-        if (brewery.length) {
-            for (let index = 0; index < brewery.length; index++) {
-                const element = brewery[index];
-                try {
-                    axios.get(
-                        `http://127.0.0.1:8000/api/ratings/add/${element['id']}`,
-                    ).then(async (response) => {
-                        console.log('brewery_id ragins', response.data);
-                        const avg = await findAvg(response.data)
-                        console.log('avg ratings', avg, element.id);
-                    });
+    const findRating = (id) => {
+        const rating = ratings.filter(e => e.id == id);
+        return rating.length && rating[0]['rating'];
 
-                } catch (error) {
-                    console.log(error);
-                }
+    }
+
+    async function getRatings() {
+        for (let index = 0; index < brewery.length; index++) {
+            const element = brewery[index];
+            try {
+                axios.get(
+                    `http://127.0.0.1:8000/api/ratings/add/${element['id']}`,
+                ).then(async (response) => {
+                    console.log('brewery_id ratings', response.data);
+                    const avg = await findAvg(response.data.data)
+                    console.log('avg ratings', avg, element.id);
+                    setRatings([...ratings, { id: element.id, rating: avg }]);
+                });
+
+            } catch (error) {
+                console.log(error);
             }
         }
     }
 
-    useEffect(() => {
-        getRatings();
+    useEffect(async() => {
+        await getRatings();
     }, [brewery])
 
     const handleClick = (e, id) => {
@@ -77,7 +80,8 @@ const SearchPage = (props) => {
                                 <td>{brewery.city}</td>
                                 <td>{brewery.state}</td>
                                 <td>Ipa Stout</td>
-                                <td>Rating: 5/5</td>
+                                <td>Rating: {ratings.length && findRating(brewery.id)}/5</td>
+                                {/* <td>Rating: {ratings && ratings[index]}/5</td> */}
                             </tr>
                         )
                     })}

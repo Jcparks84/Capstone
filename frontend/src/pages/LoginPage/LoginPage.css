@@ -2,7 +2,7 @@
 
 :root {
   --text-color: rgb(1, 1, 1);
-  --shadow-color: hsla(210, 40%, 52%, .4);
+  --shadow-color: rgba(106, 104, 104, 0.4);
   --btn-color: hsl(49, 70%, 54%);
   --bg-color: #141218;
 }
