@@ -17,7 +17,7 @@ def get_all_replies(request, brewery_id):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def user_reply(request, comment):
     print(request)
     print(
@@ -28,7 +28,7 @@ def user_reply(request, comment):
     return Response(serializer.data)
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def create_reply(request):
     serializer = ReplySerializer(data=request.data)
     if serializer.is_valid(raise_exception=True):

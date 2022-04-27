@@ -4,7 +4,7 @@ import './Comment.css'
 import useAuth from "../../hooks/useAuth";
 
 const Comment = (props) => {
-    const [comment, setComment] = useState([]);
+    const [comment, setComment] = useState('');
     const [commentss, getCommentss] = useState([])
     const [user, token] = useAuth();
     const likes = 0;
@@ -32,7 +32,8 @@ const Comment = (props) => {
                     Authorization: 'Bearer ' + token,
                 },
             });
-            setComment(response.data);
+            setComment("");
+            props.displayBreweryComments();
         } catch (error){
             console.log(error);
         }
@@ -48,9 +49,9 @@ const Comment = (props) => {
     return (
         <form className= 'formbox' onSubmit={handleComment}>
          
-            <input type='text' value={comment} onChange={(event)=> setComment(event.target.value)} />
+            <textarea type='text' className='comment-textarea' value={comment} onChange={(event)=> setComment(event.target.value)} />
          
-            <input type="submit" value='Add Comment' />
+            <input type="submit" value='Add Comment' className='comment-btn'/>
            
       
         </form>

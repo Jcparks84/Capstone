@@ -1,38 +1,45 @@
-import React, { useState } from 'react';
-import './LikeDislike.css'
+import React, { useState } from "react";
+import {
+  AiFillDislike,
+  AiFillLike,
+  AiOutlineDislike,
+  AiOutlineLike,
+} from "react-icons/ai";
+import "./LikeDislike.css";
 
-const LikeDislike = (props) =>{
+const LikeDislike = (props) => {
+  const [clicked, setClicked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
-    const [likeButton, setLikeButton] =useState('inactive'); 
-    const [dislikeButton, setDislikeButton] = useState('inactive'); 
+  const handleLike = () => {
+    setIsLiked(true);
+    setClicked(true);
+  };
 
-    function handleClickLike(event){
-        event.preventDefault(); 
-        if(likeButton === 'inactive'){
-            setDislikeButton('inactive');
-            setLikeButton('active-like');  
-        
-        }
-        else {
-            setLikeButton('inactive');
-        }
-    }
+  const handleDislike = () => {
+    setIsLiked(false);
+    setClicked(true);
+  };
 
-    function handleClickDislike(event){
-        event.preventDefault();
-        if(dislikeButton === 'inactive'){
-            setLikeButton('inactive');
-            setDislikeButton('active-dislike');
-        }
-        else{
-            setDislikeButton('inactive');
-        }
-    }
-    return(
-        <div>
-            <button className={likeButton} onClick={handleClickLike}>like</button>
-            <button className={dislikeButton} onClick={handleClickDislike}>dislike</button>
-        </div>
-    )
-}
+  if (clicked) {
+    return isLiked ? (
+      <div>
+        <AiFillLike size={20} onClick={handleLike} style={{ cursor: 'pointer'}}/>
+        <AiOutlineDislike size={20} onClick={handleDislike} style={{ cursor: 'pointer'}}/>
+      </div>
+    ) : (
+      <div>
+        <AiOutlineLike size={20} onClick={handleLike} style={{ cursor: 'pointer'}}/>
+        <AiFillDislike size={20} onClick={handleDislike} style={{ cursor: 'pointer'}} />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <AiOutlineLike size={20} onClick={handleLike} style={{ cursor: 'pointer'}}/>
+        <AiOutlineDislike size={20} onClick={handleDislike} style={{ cursor: 'pointer'}}/>
+      </div>
+    );
+  }
+};
 export default LikeDislike;

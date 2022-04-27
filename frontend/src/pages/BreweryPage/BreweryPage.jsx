@@ -18,6 +18,7 @@ const BreweryPage = () => {
   const [ratingFlag, setRatingFlag] = useState(false);
   const selectTags = (tags) => console.log(tags);
   const [user, token] = useAuth();
+  const [breweryComment, setBreweryComment] = useState([]);
   console.log("BreweryPage line 11", breweryId, user);
 
   async function getBrewery() {
@@ -31,6 +32,16 @@ const BreweryPage = () => {
   useEffect(() => {
     getBrewery([brewery]);
   }, []);
+
+  async function displayBreweryComments() {
+    let response = await axios.get(
+      `http://127.0.0.1:8000/api/comments/${breweryId}/`
+    );
+    console.log(response.data);
+    setBreweryComment(response.data);
+  }
+
+  useEffect( displayBreweryComments, []);
 
   async function addRatings(rating) {
     try {
@@ -76,7 +87,9 @@ const BreweryPage = () => {
               </div>
               <div className="breweryInfo">
                 <p>Address:</p>
-                <p>{brewery.street} {brewery.city} {brewery.state}</p>
+                <p>
+                  {brewery.street} {brewery.city} {brewery.state}
+                </p>
               </div>
               <div className="breweryInfo">
                 <p>Postal Code:</p>
@@ -99,9 +112,8 @@ const BreweryPage = () => {
               }}
             />
             <p>{rating}/5</p>
-            <Comment brewery={brewery} />
-            <CommentList breweryId={breweryId} />
-            <LikeDislike />
+            <Comment brewery={brewery} displayBreweryComments={displayBreweryComments}/>
+            <CommentList breweryComment={breweryComment} />
           </div>
         );
       })}

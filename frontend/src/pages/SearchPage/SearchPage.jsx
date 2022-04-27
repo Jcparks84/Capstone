@@ -31,7 +31,7 @@ const SearchPage = (props) => {
 
     const findRating = (id) => {
         const rating = ratings.filter(e => e.id == id);
-        return rating.length && rating[0]['rating'];
+        return rating.length && parseInt(rating[0]['rating']).toFixed(1);
 
     }
 
