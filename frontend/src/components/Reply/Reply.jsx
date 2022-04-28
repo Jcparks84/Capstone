@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import './Reply.css'
 
 const Reply = (props) => {
   const [reply, setReply] = useState("");
@@ -30,6 +31,7 @@ const Reply = (props) => {
             },
           }
         );
+        console.log('response.data Reply ===', response.data);
         setReply(response.data);
       } catch (error) {
         console.log(error.message);
@@ -55,11 +57,11 @@ const Reply = (props) => {
               outline: "none",
             }}
             type="text"
-            value={reply}
+            value={reply.text}
             onChange={(event) => setReply(event.target.value)}
           />
-          <input type="submit" value="Add Reply" />
-          <input type="button" value="close"  onClick={() => setShowInput(false)}/>
+          <input className="replyButton" type="submit" value="Add Reply" />
+          <input className="replyButton" type="button" value="close"  onClick={() => setShowInput(false)}/>
         </form>
       ) : (
         <p

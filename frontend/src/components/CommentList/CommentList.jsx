@@ -5,6 +5,7 @@ import Reply from "../Reply/Reply";
 import * as mdb from "mdb-ui-kit"; // lib
 import { Input } from "mdb-ui-kit"; // module
 import LikeDislike from "../LikeDislike/LikeDislike";
+import ReplyList from "../ReplyList/ReplyList";
 // import './CommentList.css';
 
 const CommentList = (props) => {
@@ -36,6 +37,7 @@ const CommentList = (props) => {
               </p>
               <LikeDislike />
               <Reply breweryComment={BreweryComment} />
+              <ReplyList breweryComment={BreweryComment} />
             </div>
           );
         })

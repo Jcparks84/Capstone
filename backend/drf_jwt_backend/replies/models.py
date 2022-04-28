@@ -8,3 +8,4 @@ class Reply(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.ForeignKey(Comment, on_delete=models.SET_NULL, null=True)
     text = models.CharField(max_length=255)
+    # reply_Id = models.CharField(max_length=255)

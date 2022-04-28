@@ -10,8 +10,8 @@ from .serializers import ReplySerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_all_replies(request, brewery_id):
-    replies = Reply.objects.filter(brewery_id = brewery_id)
+def get_all_replies(request, comment):
+    replies = Reply.objects.filter( comment=comment)
     serializer = ReplySerializer(replies, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -21,9 +21,10 @@ def get_all_replies(request, brewery_id):
 def user_reply(request, comment):
     print(request)
     print(
-        'User ', f"{request.user.id} {request.user.username}")
+        'User ', f"{request.user.id} {request.user.username} {request.user}")
 
-    replies = Reply.objects.filter(comment=comment)
+    replies = Reply.objects.filter(user=request.user)
+    # replies = Reply.objects.filter(comment=comment)
     serializer = ReplySerializer(replies, many=True)
     return Response(serializer.data)
 
