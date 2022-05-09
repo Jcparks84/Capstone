@@ -12,8 +12,8 @@ html {
     padding: 20px 20px;
     border-radius: 10px;
     font: bolder;
-    margin-bottom: 50px;
-    margin-top: 5px;
+    /* margin-bottom: 50px;
+    margin-top: 5px; */
   }
 
   .container h1{
@@ -21,10 +21,13 @@ html {
   }
 
   .breweryInfo{
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: space-between;
     border: red;
     margin-bottom: 10px;
+    margin-top: 10px;
+    height: 24px !important;
+    overflow: visible;   
   }
 
