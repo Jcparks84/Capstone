@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './SearchPage.css'
 import { Button, Card } from 'react-bootstrap/Button'
 import Tags from '../../components/Tags/Tags';
-import Map from '../../components/Map/Map';
+import Map
 
 const SearchPage = (props) => {
     const [brewery, setBrewery] = useState([]);
