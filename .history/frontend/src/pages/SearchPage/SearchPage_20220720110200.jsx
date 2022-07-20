@@ -70,7 +70,6 @@ const SearchPage = (props) => {
         <div className="container">
             <h1>Search Brewery by Name or City</h1>
             <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery} />
-            <div><Map/></div>
             <table>
                 <tbody>
                     {brewery.map((brewery, index) => {
@@ -86,7 +85,6 @@ const SearchPage = (props) => {
                             </tr>
                         )
                     })}
-                    
                 </tbody>
             </table>
             <BreweryPage brewery={brewery} setBreweryId={setBreweryId} />

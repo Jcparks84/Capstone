@@ -19,9 +19,6 @@ import { formRelative } from "date-fns";
 //     ComboboxOption,
 // } from "@reach/combobox/styles.css"
 
-// import mapStyles from "./mapStyles";
-// import "./Map.css"
-
 const libraies = ['places']
 const mapContainerStyle = {
     width: '100vh',
@@ -32,9 +29,7 @@ const center = {
     lng: -85.6206317,
 };
 const options = {
-    // style: mapStyles,
-    disableDefaultUI: true,
-    zoomControl: true,
+    
 }
 
 export default function Map() {
@@ -47,7 +42,6 @@ export default function Map() {
     // if (!isLoaded) return "Loading Maps";
 
     return <div>
-        <h3>Breweries <span role='img' aria-label="brewery">🍺</span></h3>
         <GoogleMap mapContainerStyle = {mapContainerStyle}
         zoom={8}
         center={center}

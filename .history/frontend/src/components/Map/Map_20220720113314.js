@@ -19,8 +19,8 @@ import { formRelative } from "date-fns";
 //     ComboboxOption,
 // } from "@reach/combobox/styles.css"
 
-// import mapStyles from "./mapStyles";
-// import "./Map.css"
+import mapStyles from "./mapStyles";
+import "./Map.css"
 
 const libraies = ['places']
 const mapContainerStyle = {
@@ -32,7 +32,7 @@ const center = {
     lng: -85.6206317,
 };
 const options = {
-    // style: mapStyles,
+    style: mapStyles,
     disableDefaultUI: true,
     zoomControl: true,
 }

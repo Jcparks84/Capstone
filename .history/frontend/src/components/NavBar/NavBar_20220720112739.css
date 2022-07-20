@@ -1,0 +1,31 @@
+.navContainer{
+  width: 100%;
+  background: black;
+}
+
+.navBar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto 80px;
+  padding: 20px 0;
+  /* background: black; */
+}
+
+ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+li{
+    margin-left: 30px;
+}
+
+.nav-link{
+  font-size: 15px;
+  color: ;
+  cursor: pointer;
+}
+

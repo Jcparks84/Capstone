@@ -20,7 +20,7 @@ import { formRelative } from "date-fns";
 // } from "@reach/combobox/styles.css"
 
 // import mapStyles from "./mapStyles";
-// import "./Map.css"
+import "./Map.css"
 
 const libraies = ['places']
 const mapContainerStyle = {

@@ -86,7 +86,6 @@ const SearchPage = (props) => {
                             </tr>
                         )
                     })}
-                    
                 </tbody>
             </table>
             <BreweryPage brewery={brewery} setBreweryId={setBreweryId} />
