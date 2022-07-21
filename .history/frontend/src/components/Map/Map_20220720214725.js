@@ -57,7 +57,6 @@ export default function Map() {
         zoom={8}
         center={center}
         options={options}
-        onLoad={onMapLoad}
         ></GoogleMap>
     </div>;
 }

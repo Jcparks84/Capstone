@@ -19,8 +19,8 @@ import { formRelative } from "date-fns";
 //     ComboboxOption,
 // } from "@reach/combobox/styles.css"
 
-import mapStyles from "./mapStyles";
-import "./Map.css"
+// import mapStyles from "./mapStyles";
+// import "./Map.css"
 
 const libraies = ['places']
 const mapContainerStyle = {
@@ -32,24 +32,19 @@ const center = {
     lng: -85.6206317,
 };
 const options = {
-    style: mapStyles,
+    // style: mapStyles,
     disableDefaultUI: true,
     zoomControl: true,
 }
 
 export default function Map() {
-    const{ isLoaded, loadError } = useLoadScript({
+    const{ isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: "AIzaSyBo1EztnAee7dq5I7gnva9XjockMNBg41U",
         libraies,
     });
 
-    const mapRef = React.useRef();
-  const onMapLoad = React.useCallback((map) => {
-    mapRef.current = map;
-  })
-
-  if (loadError) return "Error loading maps";
-  if (!isLoaded) return "Loading Maps";
+    // if (loadError) return "Error loading maps";
+    // if (!isLoaded) return "Loading Maps";
 
     return <div>
         <h3>Breweries <span role='img' aria-label="brewery">🍺</span></h3>
@@ -57,7 +52,6 @@ export default function Map() {
         zoom={8}
         center={center}
         options={options}
-        onLoad={onMapLoad}
         ></GoogleMap>
     </div>;
 }

@@ -43,13 +43,8 @@ export default function Map() {
         libraies,
     });
 
-    const mapRef = React.useRef();
-  const onMapLoad = React.useCallback((map) => {
-    mapRef.current = map;
-  })
-
-  if (loadError) return "Error loading maps";
-  if (!isLoaded) return "Loading Maps";
+    if (loadError) return "Error loading maps";
+    if (!isLoaded) return "Loading Maps";
 
     return <div>
         <h3>Breweries <span role='img' aria-label="brewery">🍺</span></h3>
@@ -57,7 +52,6 @@ export default function Map() {
         zoom={8}
         center={center}
         options={options}
-        onLoad={onMapLoad}
         ></GoogleMap>
     </div>;
 }
