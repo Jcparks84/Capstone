@@ -4,6 +4,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import BreweryPage from '../BreweryPage/BreweryPage';
 import { Link } from 'react-router-dom';
 import './SearchPage.css'
+import { Button, Card } from 'react-bootstrap/Button'
 import Map from '../../components/Map/Map';
 
 const SearchPage = (props) => {
@@ -68,7 +69,7 @@ const SearchPage = (props) => {
         <div className="container">
             <h1>Search Brewery by Name or City</h1>
             <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery} />
-            <div><Map brewery = {brewery}/></div>
+            <div><Map/></div>
             <table>
                 <tbody>
                     {brewery.map((brewery, index) => {

@@ -45,9 +45,7 @@ export default function Map(props) {
 
     const [markers, setMarkers] = React.useState([])
     const [selected, setSelected] = React.useState(null);
-    const brewery = props.brewery
-
-    console.log('brewery fdajfhda', brewery);
+    const brewery = 
 
   const onMapClick = React.useCallback((event) => {
     setMarkers(current => [

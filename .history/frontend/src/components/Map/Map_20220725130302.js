@@ -5,19 +5,19 @@ import {
     Marker,
     InfoWindow,
 } from "@react-google-maps/api";
-// import { formRelative } from "date-fns";
+import { formRelative } from "date-fns";
 
-// import usePlacesAutocomplete, {
-//     getGeocode,
-//     getLatLng,
-// } from "use-places-autocomplete"
-// import {
-//     Combobox,
-//     ComboboxInput,
-//     ComboboxPopover,
-//     ComboboxList,
-//     ComboboxOption,
-// } from "@reach/combobox/styles.css"
+import usePlacesAutocomplete, {
+    getGeocode,
+    getLatLng,
+} from "use-places-autocomplete"
+import {
+    Combobox,
+    ComboboxInput,
+    ComboboxPopover,
+    ComboboxList,
+    ComboboxOption,
+} from "@reach/combobox/styles.css"
 import mapStyles from "./mapStyles";
 import "./Map.css"
 
@@ -37,17 +37,14 @@ const options = {
     zoomControl: true,
 }
 
-export default function Map(props) {
+export default function Map() {
     const{ isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: "AIzaSyBo1EztnAee7dq5I7gnva9XjockMNBg41U",
         libraies,
     });
 
     const [markers, setMarkers] = React.useState([])
-    const [selected, setSelected] = React.useState(null);
-    const brewery = props.brewery
-
-    console.log('brewery fdajfhda', brewery);
+  const [selected, setSelected] = React.useState(null);
 
   const onMapClick = React.useCallback((event) => {
     setMarkers(current => [

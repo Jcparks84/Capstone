@@ -6,10 +6,7 @@ const SearchBar = (props) => {
 
 const [brewery, setBrewery] = useState ('');
 const {} = usePlacesAutocomplete({
-    // requestOptions: {
-    //     location: { lat: () => 44.7630567, lng: () => -85.6206317, },
-    //     radius: 200 * 1000
-    // },
+    re
 })
 
 const handleSubmit = (event) => {

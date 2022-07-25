@@ -37,7 +37,7 @@ const options = {
     zoomControl: true,
 }
 
-export default function Map(props) {
+export default function Map() {
     const{ isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: "AIzaSyBo1EztnAee7dq5I7gnva9XjockMNBg41U",
         libraies,
@@ -45,9 +45,7 @@ export default function Map(props) {
 
     const [markers, setMarkers] = React.useState([])
     const [selected, setSelected] = React.useState(null);
-    const brewery = props.brewery
-
-    console.log('brewery fdajfhda', brewery);
+    const brewery =
 
   const onMapClick = React.useCallback((event) => {
     setMarkers(current => [
