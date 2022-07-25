@@ -79,7 +79,7 @@ export default function Map() {
         <Marker key={marker.time.toISOString()} 
         position={{ lat: marker.lat, lng: marker.lng }}
         icon={{
-          url: "/beer.svg",
+          url: "/bear.svg",
           scaledSize: new window.google.maps.Size(20,20),
           origin: new window.google.maps.Point(0,0),
           anchor: new window.google.maps.Point(15,15)

@@ -18,7 +18,7 @@ import {
     ComboboxList,
     ComboboxOption,
 } from "@reach/combobox/styles.css"
-import { formatRelative } from "date-fns";
+
 import mapStyles from "./mapStyles";
 import "./Map.css"
 
@@ -43,20 +43,6 @@ export default function Map() {
         libraies,
     });
 
-    const [markers, setMarkers] = React.useState([])
-  const [selected, setSelected] = React.useState(null);
-
-  const onMapClick = React.useCallback((event) => {
-    setMarkers(current => [
-      ...current,
-      {
-        lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-        time: new Date(),
-      }
-    ] );
-  }, []);
-
     const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map) => {
     mapRef.current = map;
@@ -79,7 +65,7 @@ export default function Map() {
         <Marker key={marker.time.toISOString()} 
         position={{ lat: marker.lat, lng: marker.lng }}
         icon={{
-          url: "/beer.svg",
+          url: "/bear.svg",
           scaledSize: new window.google.maps.Size(20,20),
           origin: new window.google.maps.Point(0,0),
           anchor: new window.google.maps.Point(15,15)
