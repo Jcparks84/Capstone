@@ -98,7 +98,7 @@ export default function Map() {
           >
           <div>
             <h2>Brewery Info</h2>
-            <p>Brewery Address</p>
+            <p>Spotted</p>
           </div>
         </InfoWindow>) : null}
       </GoogleMap>

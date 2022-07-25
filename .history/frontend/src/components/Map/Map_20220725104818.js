@@ -97,8 +97,8 @@ export default function Map() {
           }}
           >
           <div>
-            <h2>Brewery Info</h2>
-            <p>Brewery Address</p>
+            <h2>Brewery</h2>
+            <p>Spotted {formatRelative(selected.time, new Date())}</p>
           </div>
         </InfoWindow>) : null}
       </GoogleMap>
