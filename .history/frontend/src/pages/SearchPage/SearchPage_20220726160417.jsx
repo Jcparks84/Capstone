@@ -50,6 +50,7 @@ const SearchPage = (props) => {
         }
     }
 
+    console.log(lat, lng)
 
       
 
@@ -103,7 +104,7 @@ const SearchPage = (props) => {
             <h1>Search Brewery by Name or City</h1>
             <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
             <div>
-                <Map brewery = {brewery} lat = {lat} lng = {lng}/>
+                <Map brewery = {brewery} latLng = {getLatLng}/>
             </div>
             <table>
                 <tbody>

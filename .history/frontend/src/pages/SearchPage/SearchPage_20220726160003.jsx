@@ -31,8 +31,7 @@ const SearchPage = (props) => {
     const breweryState = brewery.map(brewery => brewery.state)
 	const [lat, setLat] = useState(37.0902)
     const [lng, setLng] = useState(-95.7129)
-    const address = breweryStreet + (' ') + breweryCity + (' ') + breweryState
-    const apiKey = "AIzaSyC4P_Gmd5i1Rm_7HGuBE9uIpDrGrDPPiWw"
+    const address = breweryStreet + (' ') + breweryCity + ('') + breweryState
     
 
     console.log("address......", address)
@@ -41,7 +40,7 @@ const SearchPage = (props) => {
         
     const getLatLng = async () => {
         try {
-            let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`)
+            let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key="AIzaSyC4P_Gmd5i1Rm_7HGuBE9uIpDrGrDPPiWw"`)
             setLat(response.data.results[0].geometry.location.lat)
             setLng(response.data.results[0].geometry.location.lng)
         }
@@ -49,7 +48,6 @@ const SearchPage = (props) => {
             console.log(error.message)
         }
     }
-
 
       
 
@@ -103,7 +101,7 @@ const SearchPage = (props) => {
             <h1>Search Brewery by Name or City</h1>
             <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
             <div>
-                <Map brewery = {brewery} lat = {lat} lng = {lng}/>
+                <Map brewery = {brewery} latLng = {getLatLng}/>
             </div>
             <table>
                 <tbody>

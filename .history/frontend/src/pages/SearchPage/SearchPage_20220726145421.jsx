@@ -21,27 +21,38 @@ const SearchPage = (props) => {
         );
         console.log('Brewery', response.data)
         setBrewery(response.data)
-
     }
-    
-    
-    
-    const breweryStreet = brewery.map(brewery => brewery.street)
-    const breweryCity = brewery.map(brewery => brewery.city)
-    const breweryState = brewery.map(brewery => brewery.state)
+  
+  
+    // Get latitude & longitude from address.
+
+    // Geocode.setApiKey("AIzaSyDyLYju-VigOrqW0mLBu8hOok05-Va7FMM");
+    // Geocode.setLanguage("en");
+    // Geocode.setRegion("es");
+
+    // Geocode.fromAddress("Eiffel Tower").then(
+    //     (response) => {
+    //       const { lat, lng } = response.results[0].geometry.location;
+    //       console.log(lat, lng);
+    //     },
+    //     (error) => {
+    //       console.error(error);
+    //     }
+    //   );
+
+    const breweryAddress = brewery.street
+    const breweryCity = "%20" + brewery.city
+    const breweryState = "%20" + brewery.state
 	const [lat, setLat] = useState(37.0902)
     const [lng, setLng] = useState(-95.7129)
-    const address = breweryStreet + (' ') + breweryCity + (' ') + breweryState
-    const apiKey = "AIzaSyC4P_Gmd5i1Rm_7HGuBE9uIpDrGrDPPiWw"
-    
+    const address = breweryAddress+breweryCity+breweryState
 
-    console.log("address......", address)
+    console.log("street......")
 
-        // Get the Lat & Lng of the Address
-        
+// Get the Lat & Lng of the Address
     const getLatLng = async () => {
         try {
-            let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`)
+            let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key="AIzaSyC4P_Gmd5i1Rm_7HGuBE9uIpDrGrDPPiWw"`)
             setLat(response.data.results[0].geometry.location.lat)
             setLng(response.data.results[0].geometry.location.lng)
         }
@@ -49,8 +60,6 @@ const SearchPage = (props) => {
             console.log(error.message)
         }
     }
-
-
       
 
 
@@ -103,7 +112,7 @@ const SearchPage = (props) => {
             <h1>Search Brewery by Name or City</h1>
             <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
             <div>
-                <Map brewery = {brewery} lat = {lat} lng = {lng}/>
+                <Map brewery = {brewery}/>
             </div>
             <table>
                 <tbody>
