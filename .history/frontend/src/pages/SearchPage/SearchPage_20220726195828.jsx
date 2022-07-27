@@ -32,7 +32,7 @@ const SearchPage = (props) => {
 	const [lat, setLat] = useState(37.0902)
     const [lng, setLng] = useState(-95.7129)
     const address = breweryStreet + (' ') + breweryCity + (' ') + breweryState
-    const apiKey = "AIzaSyBCekT6Mco6yVcvbxOfUNjs9sb97NdE0Yg"
+    const apiKey = "AIzaSyC4P_Gmd5i1Rm_7HGuBE9uIpDrGrDPPiWw"
     
 
     console.log("address......", address)
@@ -50,7 +50,7 @@ const SearchPage = (props) => {
         }
     }
 
-    useEffect ( getLatLng )
+    
       
 
 

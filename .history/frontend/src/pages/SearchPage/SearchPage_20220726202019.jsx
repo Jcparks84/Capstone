@@ -42,6 +42,7 @@ const SearchPage = (props) => {
     const getLatLng = async () => {
         try {
             let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`)
+            console.log(response)
             setLat(response.data.results[0].geometry.location.lat)
             setLng(response.data.results[0].geometry.location.lng)
         }

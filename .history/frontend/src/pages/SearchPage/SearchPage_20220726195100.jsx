@@ -31,8 +31,8 @@ const SearchPage = (props) => {
     const breweryState = brewery.map(brewery => brewery.state)
 	const [lat, setLat] = useState(37.0902)
     const [lng, setLng] = useState(-95.7129)
-    const address = breweryStreet + (' ') + breweryCity + (' ') + breweryState
-    const apiKey = "AIzaSyBCekT6Mco6yVcvbxOfUNjs9sb97NdE0Yg"
+    const address = breweryStreet + breweryCity + breweryState
+    const apiKey = "AIzaSyC4P_Gmd5i1Rm_7HGuBE9uIpDrGrDPPiWw"
     
 
     console.log("address......", address)
@@ -50,7 +50,7 @@ const SearchPage = (props) => {
         }
     }
 
-    useEffect ( getLatLng )
+
       
 
 
@@ -103,7 +103,7 @@ const SearchPage = (props) => {
             <h1>Search Brewery by Name or City</h1>
             <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
             <div>
-                <Map brewery = {brewery} lat = {lat} lng = {lng} getLatLng = {getLatLng}/>
+                <Map brewery = {brewery} lat = {lat} lng = {lng}/>
             </div>
             <table>
                 <tbody>
