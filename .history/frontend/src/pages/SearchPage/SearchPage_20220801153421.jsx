@@ -25,7 +25,9 @@ const SearchPage = (props) => {
         const locationPromises = arr.map(location => axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location.state + ' ' + location.city + ' ' + location.street }&key=${apiKey}`));
         const locationResponses = await Promise.all(locationPromises);
         const locns = locationResponses.map(locationResponse => locationResponse.data.results.length > 0 ? {lat: locationResponse.data.results[0].geometry.location.lat, lng:locationResponse.data.results[0].geometry.location.lng} : {});
+        console.log("locns", locns)
         const updatedArray = arr.map((location, index) => ({ ...location, longitude: locns[index].lng, latitude:  locns[index].lat}));
+       console.log("updatedArray")
         setBrewery( updatedArray );
 
     }
@@ -69,6 +71,7 @@ const SearchPage = (props) => {
 
   
 
+    console.log("......BREWERY.....", brewery);
       
 
 

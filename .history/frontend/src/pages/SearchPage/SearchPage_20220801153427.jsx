@@ -69,6 +69,7 @@ const SearchPage = (props) => {
 
   
 
+    console.log("......BREWERY.....", brewery);
       
 
 
