@@ -81,7 +81,7 @@ export default function Map(props) {
         <GoogleMap 
       mapContainerStyle={mapContainerStyle}
       zoom={11}
-      center={center}
+      center={cordinates}
       options={options}
       onMapLoad = {onMapLoad}
       // onClick={onMarkerClick}

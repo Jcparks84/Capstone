@@ -28,7 +28,7 @@ const mapContainerStyle = {
     height: "100vh",
 };
 const center = {
-    lat: 44.7630567,
+    lat: 44.7630567, 
     lng: -85.6206317,
 };
 const options = {
@@ -49,7 +49,14 @@ export default function Map(props) {
     const lng = props.lng
     const [markers, setMarkers] = React.useState([])
     const [selected, setSelected] = React.useState(null);
+    const [cordinates , setCordinates] = React.useState([10, 10]);
+
     
+    React.useEffect(() => {
+       setCordinates(props.center);
+    }, [props.center])
+
+
 
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
@@ -81,7 +88,7 @@ export default function Map(props) {
         <GoogleMap 
       mapContainerStyle={mapContainerStyle}
       zoom={11}
-      center={center}
+      center={cordinates}
       options={options}
       onMapLoad = {onMapLoad}
       // onClick={onMarkerClick}

@@ -51,16 +51,21 @@ export default function Map(props) {
     const [selected, setSelected] = React.useState(null);
     
 
+
+
+
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
       ...current,
       {
         lat: Number(event.longitude),
         lng: Number(event.latitude),
+        time: new Date(),
       }
     ] );
   }, []);
 
+    addEventListener()
 
   
     const mapRef = React.useRef();
@@ -84,7 +89,7 @@ export default function Map(props) {
       center={center}
       options={options}
       onMapLoad = {onMapLoad}
-      // onClick={onMarkerClick}
+      onClick={onMarkerClick}
       >
         {brewery.map((marker) => {
          if (marker.longitude && marker.latitude) {
@@ -99,10 +104,8 @@ export default function Map(props) {
           anchor: new window.google.maps.Point(15,15)
         }}
         onClick={() => {
-          console.log(".....MARKER......", marker)
-          setSelected(marker)
+          setSelected(marker);
         }}
-        
         />)
       }
       else{
@@ -111,14 +114,14 @@ export default function Map(props) {
       })}
 
         {selected ? (
-        <InfoWindow  position={{ lat: Number(selected.latitude), lng: Number(selected.longitude) }}
+        <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
         onCloseClick={()=> {
           setSelected(null);
           }}
           >
           <div>
-            <h2>{selected.name}</h2>
-            <p>{selected.street}</p>
+            <h2>Brewery Info</h2>
+            <p>Brewery Address</p>
           </div>
         </InfoWindow>) : null}
       </GoogleMap>

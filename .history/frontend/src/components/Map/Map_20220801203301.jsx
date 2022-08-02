@@ -49,7 +49,14 @@ export default function Map(props) {
     const lng = props.lng
     const [markers, setMarkers] = React.useState([])
     const [selected, setSelected] = React.useState(null);
+    const [cordinates , setCordinates] = React.useState(center);
+
     
+    React.useEffect(() => {
+       setCordinates();
+    }, [props.center])
+
+
 
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
@@ -81,7 +88,7 @@ export default function Map(props) {
         <GoogleMap 
       mapContainerStyle={mapContainerStyle}
       zoom={11}
-      center={center}
+      center={cordinates}
       options={options}
       onMapLoad = {onMapLoad}
       // onClick={onMarkerClick}

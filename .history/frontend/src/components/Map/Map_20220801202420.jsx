@@ -48,8 +48,11 @@ export default function Map(props) {
     const lat = props.lat
     const lng = props.lng
     const [markers, setMarkers] = React.useState([])
-    const [selected, setSelected] = React.useState(null);
+    let [selected, setSelected] = React.useState(null);
     
+
+
+
 
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
@@ -90,6 +93,7 @@ export default function Map(props) {
          if (marker.longitude && marker.latitude) {
           
          return (
+          ce
         <Marker key={marker.id} 
         position={{ lat: Number(marker.latitude), lng: Number(marker.longitude) }}
         icon={{

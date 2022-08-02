@@ -48,8 +48,11 @@ export default function Map(props) {
     const lat = props.lat
     const lng = props.lng
     const [markers, setMarkers] = React.useState([])
-    const [selected, setSelected] = React.useState(null);
+    let [selected, setSelected] = React.useState(null);
     
+
+
+
 
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
@@ -118,7 +121,7 @@ export default function Map(props) {
           >
           <div>
             <h2>{selected.name}</h2>
-            <p>{selected.street}</p>
+            <p>{brewery.street}</p>
           </div>
         </InfoWindow>) : null}
       </GoogleMap>

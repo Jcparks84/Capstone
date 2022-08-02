@@ -51,6 +51,9 @@ export default function Map(props) {
     const [selected, setSelected] = React.useState(null);
     
 
+
+
+
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
       ...current,

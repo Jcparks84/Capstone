@@ -48,8 +48,11 @@ export default function Map(props) {
     const lat = props.lat
     const lng = props.lng
     const [markers, setMarkers] = React.useState([])
-    const [selected, setSelected] = React.useState(null);
+     [selected, setSelected] = React.useState(null);
     
+
+
+
 
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [

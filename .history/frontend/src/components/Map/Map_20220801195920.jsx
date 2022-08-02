@@ -51,6 +51,9 @@ export default function Map(props) {
     const [selected, setSelected] = React.useState(null);
     
 
+
+
+
     const onSearch = React.useCallback((event) => {
     setMarkers(current => [
       ...current,
@@ -100,7 +103,8 @@ export default function Map(props) {
         }}
         onClick={() => {
           console.log(".....MARKER......", marker)
-          setSelected(marker)
+          // setSelected(marker)
+          console.log(selected)
         }}
         
         />)
@@ -111,14 +115,14 @@ export default function Map(props) {
       })}
 
         {selected ? (
-        <InfoWindow  position={{ lat: Number(selected.latitude), lng: Number(selected.longitude) }}
+        <InfoWindow position={markers} 
         onCloseClick={()=> {
           setSelected(null);
           }}
           >
           <div>
-            <h2>{selected.name}</h2>
-            <p>{selected.street}</p>
+            <h2>Brewery Info</h2>
+            <p>Brewery Address</p>
           </div>
         </InfoWindow>) : null}
       </GoogleMap>

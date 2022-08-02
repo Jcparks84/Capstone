@@ -35,8 +35,8 @@ const SearchPage = (props) => {
     const breweryStreet = brewery.map(brewery => brewery.street)
     const breweryCity = brewery.map(brewery => brewery.city)
     const breweryState = brewery.map(brewery => brewery.state)
-	const [lat, setLat] = useState(37.0902)
     const [lng, setLng] = useState(-95.7129)
+    const [address, setAddress] = useState()
     const array = brewery
 
         for (let index = 0; index < array.length; index++) {
