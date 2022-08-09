@@ -1,0 +1,26 @@
+html { 
+    background: url('../../../../Images/beer3.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .wrapper {
+    width:600px;
+    margin:0 auto;
+    background: beige;
+    color: black;
+    padding: 20px 20px;
+    border-radius: 10px;
+    font: bolder;
+    position: relative;
+    top: 0px; right: px;
+}
+.break {
+    text-align:center;
+    font-weight:bold;
+    background:rgba(255,0,0, 0.5);
+    margin-left:-100%;
+    margin-right:-100%;
+}

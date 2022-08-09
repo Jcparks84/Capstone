@@ -1,0 +1,13 @@
+html { 
+    background: url('../../../../Images/beer3.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .breakout {
+    margin:1em -100%; /* old browsers fallback */
+    margin:1em calc(50% - 50vw);
+    background-color:rgba(255,0,255,0.5)
+  }

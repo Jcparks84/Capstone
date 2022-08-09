@@ -1,0 +1,14 @@
+
+.mapContainer{
+
+}
+
+.maph3 {
+    position: relative;
+    top: 20rem;
+    left: 28.5rem;
+    color: black;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
