@@ -1,0 +1,41 @@
+html { 
+    background: url('../../../../Images/monica-di-loxley-pJLmctCUmW0-unsplash.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .container{
+    position: relative;
+    bottom: 10px;
+    right: 420px;
+    background: beige;
+    color: black;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font: bolder;
+  } 
+  
+
+  .container h1{
+    margin-bottom: 20px;
+  }
+
+  .breweryInfo{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border: red;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 24px !important;
+    overflow: visible;   
+  }
+
+  .name-container {
+    position: relative;
+    top: 10px;
+    left: 10px;
+  }
+
