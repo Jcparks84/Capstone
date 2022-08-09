@@ -1,0 +1,17 @@
+.mapContainer {
+    position: absolute;
+    top: -50px; left: 670px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-collapse: collapse;
+}
+
+
+.maph3 {
+    position: relative;
+    top: 3rem;
+    left: 2rem;
+    color: black;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
