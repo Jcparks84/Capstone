@@ -6,15 +6,13 @@ html {
     background-size: cover;
   }
 
-  /* .container{
+  .container{
     background: beige;
     color: black;
-    padding: 20px 20px;
+    /* padding: 10px 10px; */
     border-radius: 10px;
     font: bolder;
-    position: relative;
-
-  }  */
+  } 
 
   .container h1{
     margin-bottom: 20px;

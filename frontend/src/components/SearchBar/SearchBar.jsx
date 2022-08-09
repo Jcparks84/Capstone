@@ -8,20 +8,23 @@ const [brewery, setBrewery] = useState ('');
 
 const handleSubmit = (event) => {
     event.preventDefault();
+    setBrewery('')
     // console.log(brewery);
     props.getBrewery(brewery)
 }
 
+
     return(
-        <form>
-            <div className='searchbar'>
-                <input type='text' placeholder='Search Brewery' value={brewery} onChange={(event)=> setBrewery(event.target.value)}/>
+        <form id='search-form'>
+            <div className='search'>
+                <input type='text' name='Search Brewery' className='round' value={brewery} onChange={(event)=> setBrewery(event.target.value)}/>
             </div>
-            <button onClick={handleSubmit} type = 'submit'>Search</button>
+            <button className='search-button' onClick={handleSubmit} type = 'submit'>Search</button>
         </form>
     )
 
 }
 
 export default SearchBar
+
 

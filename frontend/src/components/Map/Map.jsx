@@ -8,6 +8,7 @@ import {
 import mapStyles from "./mapStyles";
 import "./Map.css"
 import SearchPage from "../../pages/SearchPage/SearchPage";
+import { Link } from "react-router-dom";
 
 
 const libraies = ['places']
@@ -109,7 +110,7 @@ export default function Map(props) {
           >
           <div>
             <h2>{selected.name}</h2>
-            <p>{selected.street}</p>
+            <p><Link to={`/brewery/${selected.id}`}>Details</Link></p>
           </div>
         </InfoWindow>) : null}
       </GoogleMap>

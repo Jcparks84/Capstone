@@ -105,29 +105,31 @@ const SearchPage = (props) => {
 
     return (
         <div className="wrapper">
-            <h1>Search Brewery by Name or City</h1>
-            <SearchBar placeholder='Enter brewery or city' handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
+            <h1 className='searchbox-h1'>Search Brewery by Name or City</h1>
+            <SearchBar handleChange={(e) => console.log(e.target.value)} getBrewery={getBrewery}/>
             <div className='breakout'>
                 <Map brewery = {brewery} lat = {lat} lng = {lng} getLatLng = {getLatLng} center={center} />
             </div>
             
-            <table>
-                <tbody>
+            <table className='styledTable'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
                     {brewery.map((brewery, index) => {
                         return (
+                            <tbody>
                             <tr className='row' key={index}>
-                                <td><Link to={`/brewery/${brewery.id}`}>Details</Link></td>
-                                <td>{brewery.name}</td>
-                                <td>{brewery.city}</td>
-                                <td>{brewery.state}</td>
-                                <td>Ipa Stout</td>
+                                <td><Link to={`/brewery/${brewery.id}`}>{brewery.name}</Link></td>
                                 <td>Rating: {ratings.length && findRating(brewery.id)}/5</td>
                                 {/* <td>Rating: {ratings && ratings[index]}/5</td> */}
                             </tr>
+                            </tbody>
                         )
                     })}
                     
-                </tbody>
             </table>
             <BreweryPage brewery={brewery} setBreweryId={setBreweryId} />
         </div>

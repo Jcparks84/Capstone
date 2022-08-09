@@ -21,17 +21,17 @@ const BreweryPage = () => {
   const [breweryComment, setBreweryComment] = useState([]);
   
 
-  // async function getBrewery() {
-  //   let response = await axios.get(
-  //     `https://api.openbrewerydb.org/breweries/${breweryId}`
-  //   );
-  //   console.log("getBrewery Response", response.data);
-  //   setBrewery([response.data]);
-  // }
+  async function getBrewery() {
+    let response = await axios.get(
+      `https://api.openbrewerydb.org/breweries/${breweryId}`
+    );
+    console.log("getBrewery Response", response.data);
+    setBrewery([response.data]);
+  }
 
-  // useEffect(() => {
-  //   getBrewery([brewery]);
-  // }, []);
+  useEffect(() => {
+    getBrewery([brewery]);
+  }, []);
 
   async function displayBreweryComments() {
     let response = await axios.get(
@@ -76,11 +76,7 @@ const BreweryPage = () => {
         return (
           <div className="container" key={index}>
             <div>
-              <h1>Brewery Page</h1>
-              <div className="breweryInfo">
-                <p>Name:</p>
-                <p>{brewery.name}</p>
-              </div>
+              <h1>{brewery.name}</h1>
               <div className="breweryInfo">
                 <p>Type:</p>
                 <p>{brewery.brewery_type}</p>
